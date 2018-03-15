@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "fix:assets": "yarn prettier --write",
-    "fix:code": "yarn test:code --fix",
-    "fix": "yarn fix:code && yarn fix:assets",
+    "fix:assets": "npm run prettier --write",
+    "fix:code": "npm run test:code --fix",
+    "fix": "npm run fix:code && npm run fix:assets",
     "prettier": "prettier --ignore-path .gitignore  \"**/*.{json,md,scss}\"",
-    "test:assets": "yarn prettier --list-different",
+    "test:assets": "npm run prettier --list-different",
     "test:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\"",
-    "test": "yarn test:assets && yarn test:code"  
+    "test": "npm run test:assets && npm run test:code"
   },
   "dependencies": {
     "body-parser": "1.18.2",
