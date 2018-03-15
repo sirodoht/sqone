@@ -4,11 +4,7 @@ const Redis = require('ioredis');
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  const redis = new Redis({
-    port: 6379,
-    host: '127.0.0.1',
-    db: 2,
-  });
+  const redis = new Redis(process.env.REDIS_URL);
 
   const items = [];
 
@@ -34,11 +30,7 @@ router.get('/', (req, res) => {
 
 /* GET unique image. */
 router.get('/:id', (req, res) => {
-  const redis = new Redis({
-    port: 6379,
-    host: '127.0.0.1',
-    db: 2,
-  });
+  const redis = new Redis(process.env.REDIS_URL);
 
   const options = {
     root: __dirname + '/../public/images/',
