@@ -12,12 +12,10 @@ router.get('/', (req, res) => {
     .keys('*')
     .map(key => {
       return redis.get(key).then(value => {
-        console.log(key + ': ' + value);
         items.push(key + ': ' + value);
       });
     })
     .then(() => {
-      console.log('items:', items);
       res.render('index', {
         items,
       });
@@ -39,7 +37,6 @@ router.get('/:id', (req, res) => {
   redis
     .get(keyName)
     .then(result => {
-      console.log('result:', result);
       let newValue = 1;
       if (result) {
         newValue = parseInt(result) + 1;
