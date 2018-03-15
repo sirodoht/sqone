@@ -35,6 +35,5 @@ rules:
   prefer-promise-reject-errors: 2
   prettier/prettier: 2
   sort-imports: 2
-  sort-keys: [2, asc, {caseSensitive: true, natural: true}]
   sort-vars: 2
   strict: [2, global]
