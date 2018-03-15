@@ -3,7 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "fix:assets": "yarn prettier --write",
+    "fix:code": "yarn test:code --fix",
+    "fix": "yarn fix:code && yarn fix:assets",
+    "prettier": "prettier --ignore-path .gitignore  \"**/*.{json,md,scss}\"",
+    "test:assets": "yarn prettier --list-different",
+    "test:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\"",
+    "test": "yarn test:assets && yarn test:code"  
   },
   "dependencies": {
     "body-parser": "~1.18.2",
