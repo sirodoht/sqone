@@ -1,5 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Sqone
+  ul
+    each val in items
+      li= val
