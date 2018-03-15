@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "precommit": "lint-staged",
     "fix:assets": "npm run prettier --write",
     "fix:code": "npm run test:code --fix",
     "fix": "npm run fix:code && npm run fix:assets",
@@ -17,6 +16,7 @@
     "body-parser": "1.18.2",
     "cookie-parser": "1.4.3",
     "debug": "2.6.9",
+    "dotenv": "5.0.1",
     "express": "4.15.5",
     "ioredis": "3.2.2",
     "morgan": "1.9.0",
@@ -33,7 +33,13 @@
     "prettier": "1.11.1"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["eslint --fix", "git add"],
-    "*.{json,md,scss}": ["prettier --write", "git add"]
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,md,scss}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
