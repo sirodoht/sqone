@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "precommit": "lint-staged",
     "fix:assets": "npm run prettier --write",
     "fix:code": "npm run test:code --fix",
     "fix": "npm run fix:code && npm run fix:assets",
@@ -25,6 +26,12 @@
     "eslint": "4.18.2",
     "eslint-config-prettier": "2.9.0",
     "eslint-plugin-prettier": "2.6.0",
+    "husky": "0.14.3",
+    "lint-staged": "7.0.0",
     "prettier": "1.11.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": ["eslint --fix", "git add"],
+    "*.{json,md,scss}": ["prettier --write", "git add"]
   }
 }
