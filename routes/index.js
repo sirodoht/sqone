@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
       return redis.get(key).then(value => {
         console.log(key + ': ' + value);
         items.push(key + ': ' + value);
-        console.log('does this run 6 times?');
       });
     })
     .then(() => {
