@@ -4,7 +4,32 @@ const Redis = require('ioredis');
 
 /* GET home page. */
 router.get('/', (req, res) => {
-  res.send('Well, hello there!');
+  const redis = new Redis({
+    port: 6379,
+    host: '127.0.0.1',
+    db: 2,
+  });
+
+  const items = [];
+
+  redis
+    .keys('*')
+    .map(key => {
+      return redis.get(key).then(value => {
+        console.log(key + ': ' + value);
+        items.push(key + ': ' + value);
+        console.log('does this run 6 times?');
+      });
+    })
+    .then(() => {
+      console.log('items:', items);
+      res.render('index', {
+        items,
+      });
+    })
+    .catch(err => {
+      throw err;
+    });
 });
 
 /* GET unique image. */
