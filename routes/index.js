@@ -47,7 +47,7 @@ router.get('/:id', (req, res) => {
       return redis.set(keyName, newValue);
     })
     .then(() => {
-      return res.sendFile('divider.png', options, err => {
+      return res.sendFile('transparent-pixel.png', options, err => {
         if (err) {
           next(err);
         } else {
