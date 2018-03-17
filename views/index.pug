@@ -2,6 +2,15 @@ extends layout
 
 block content
   h1 Sqone
-  ul
-    each val in items
-      li= val
+  table
+    thead
+      tr
+        th
+          strong Path
+        th
+          strong Count
+    tbody
+      each val in items
+        tr
+          td= val.key
+          td= val.value
