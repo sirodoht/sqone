@@ -12,7 +12,10 @@ router.get('/', (req, res) => {
     .keys('*')
     .map(key => {
       return redis.get(key).then(value => {
-        items.push(key + ': ' + value);
+        items.push({
+          key,
+          value,
+        });
       });
     })
     .then(() => {
