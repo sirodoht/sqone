@@ -1,5 +1,4 @@
 env:
-  browser: true
   node: true
 
 plugins:
@@ -10,9 +9,6 @@ extends:
 
 parserOptions:
   ecmaVersion: 8
-  sourceType: module
-  ecmaFeatures:
-    jsx: true
 
 rules:
   curly: 2
@@ -35,4 +31,3 @@ rules:
   prettier/prettier: 2
   sort-imports: 2
   sort-vars: 2
-  strict: [2, global]
