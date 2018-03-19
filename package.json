@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "node ./bin/web",
+    "watch": "nodemon ./bin/web",
     "test": "eslint --ignore-path .gitignore --ignore-path .prettierignore \"**/*.{js,jsx}\" && jest --verbose"
   },
   "dependencies": {
