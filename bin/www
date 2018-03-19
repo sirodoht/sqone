@@ -2,6 +2,8 @@
 
 require('dotenv').config();
 
+const redisService = require('../services/redis');
+
 /**
  * Module dependencies.
  */
@@ -22,6 +24,12 @@ app.set('port', port);
  */
 
 const server = http.createServer(app);
+
+/**
+ * Connect to database.
+ */
+
+redisService.connect();
 
 /**
  * Listen on provided port, on all network interfaces.
