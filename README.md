@@ -8,11 +8,11 @@ Self hosted email tracker in Node.js
 
 Email tracking works by logging a GET request in an inline image on the email body.
 
-With sqone you can GET on any path (e.g. /sample-image.png) and get a
+With Sqone you can GET on any path (e.g. /sample-image.png) and get a
 transparent 1x1 image back. This way you can attach an image when you don't
 have an image you want attached.
 
-On the index of Sqone you can see the number of requests on each path.
+On the index route you can see the number of requests on each path.
 
 ## Setup
 
