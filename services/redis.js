@@ -9,7 +9,7 @@ redisService.connect = function(namespaceKey = 'sqone:') {
 };
 
 redisService.disconnect = function() {
-  connection.disconnect();
+  return connection.disconnect();
 };
 
 redisService.connection = function() {

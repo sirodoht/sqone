@@ -16,16 +16,20 @@ tester.setup = function() {
   return app;
 };
 
-tester.teardown = function() {
-  redisService
+tester.teardown = function(done) {
+  return redisService
     .connection()
     .keys('sqoneTest:*')
     .map(key => {
       return redisService.connection().del(key.split(':')[1]);
     })
     .then(() => {
-      redisService.disconnect();
-      server.close();
+      return redisService.disconnect();
+    })
+    .then(() => {
+      server.close(() => {
+        done();
+      });
     });
 };
 

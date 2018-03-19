@@ -4,16 +4,18 @@ const tester = require('./tester');
 
 let app = null;
 
-beforeAll(() => {
-  app = tester.setup();
-});
+describe('count test', () => {
+  beforeAll(() => {
+    app = tester.setup();
+  });
 
-afterAll(() => {
-  tester.teardown();
-});
+  afterAll(done => {
+    return tester.teardown(done);
+  });
 
-test('get 200 on count', () => {
-  return request(app)
-    .get('/ironman')
-    .expect(200);
+  test('get 200 on count', () => {
+    return request(app)
+      .get('/ironman')
+      .expect(200);
+  });
 });
