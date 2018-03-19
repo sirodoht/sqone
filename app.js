@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const debug = require('debug')('sqone:server');
 // const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
@@ -34,6 +35,8 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
+  debug('err:', err);
+  debug('err.message:', err.message);
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
